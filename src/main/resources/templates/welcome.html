@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>心灵疏通系统 - 主页</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .gradient-border {
+      background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+      position: relative;
+      border-radius: 16px;
+    }
+    .gradient-border:after {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      z-index: -1;
+      background: white;
+      border-radius: 16px;
+    }
+    .tool-card {
+      transition: transform 0.3s ease;
+    }
+    .tool-card:hover {
+      transform: translateY(-5px);
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center h-screen p-4">
+<div class="gradient-border w-full max-w-4xl mx-auto">
+  <div class="bg-white rounded-lg p-8">
+    <div class="flex justify-between items-center mb-10">
+      <span class="text-4xl font-bold text-gray-800" th:text="'欢迎, ' + ${session.username}"></span>
+  </span>
+      <div class="flex space-x-4">
+        <a href="#" class="text-gray-800 hover:text-blue-600">
+          <i class="fas fa-home"></i>
+        </a>
+        <a href="#" class="text-gray-800 hover:text-blue-600">
+          <i class="fas fa-user"></i>
+        </a>
+        <a href="#" class="text-gray-800 hover:text-blue-600">
+          <i class="fas fa-cog"></i>
+        </a>
+        <a href="/logOff" class="text-gray-800 hover:text-blue-600">
+          <i class="fas fa-sign-out-alt"></i>
+        </a>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="tool-card bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg p-4 flex flex-col items-center justify-center text-white shadow-lg">
+        <i class="fas fa-chart-bar text-4xl mb-3"></i>
+        <h3 class="text-lg font-semibold">数据分析</h3>
+        <p class="text-sm">查看最新的市场趋势和数据报告。</p>
+      </div>
+      <div class="tool-card bg-gradient-to-r from-green-500 to-teal-600 rounded-lg p-4 flex flex-col items-center justify-center text-white shadow-lg">
+        <i class="fas fa-envelope text-4xl mb-3"></i>
+        <h3 class="text-lg font-semibold">消息中心</h3>
+        <p class="text-sm">管理你的电子邮件和即时消息。</p>
+      </div>
+      <div class="tool-card bg-gradient-to-r from-red-500 to-pink-600 rounded-lg p-4 flex flex-col items-center justify-center text-white shadow-lg">
+        <i class="fas fa-calendar-alt text-4xl mb-3"></i>
+        <h3 class="text-lg font-semibold">日程管理</h3>
+        <p class="text-sm">安排和跟踪你的会议和事件。</p>
+      </div>
+      <a href="/l/files" class="tool-card bg-gradient-to-r from-yellow-500 to-orange-600 rounded-lg p-4 flex flex-col items-center justify-center text-white shadow-lg">
+          <i class="fas fa-folder text-4xl mb-3"></i>
+          <h3 class="text-lg font-semibold">文件存储</h3>
+          <p class="text-sm">安全存储和共享文件。</p>
+      </a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

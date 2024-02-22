@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>心灵疏通管理系统 - 登录</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body class="bg-gradient-to-r from-blue-300 to-blue-100 flex items-center justify-center h-screen p-4">
+<div class="bg-white rounded-lg shadow-xl overflow-hidden w-full max-w-sm mx-auto">
+    <div class="p-6">
+        <div class="flex justify-center">
+            <span class="text-3xl font-bold text-blue-600">
+                心灵疏通管理系统
+            </span>
+        </div>
+        <div class="flex justify-center mt-6 mb-8">
+            <img alt="LOGO" class="rounded-lg" height="150" src="/pic/logo.png" width="200"/>
+        </div>
+
+        <!-- 登录表单 -->
+        <form method="post" action="/loginPost">
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-semibold mb-2" for="username">
+                    用户名ID
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" name="username" type="text" placeholder="请输入用户名" th:value="${username}">
+            </div>
+            <div class="mb-6">
+                <label class="block text-gray-700 text-sm font-semibold mb-2" for="password">
+                    密码
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" name="password" type="password" placeholder="请输入密码">
+            </div>
+            <div class="flex items-center justify-between">
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">登录</button>
+                <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
+                    忘记密码?
+                </a>
+            </div>
+        </form>
+        <!-- 登录表单结束 -->
+        <div th:if="${error}" style="color: lightcoral" class="alert alert-danger;" role="alert">
+            <strong>Error:</strong> <i th:text="${error}"></i>
+        </div>
+
+    </div>
+    <div class="px-6 pt-4 pb-2 bg-blue-50">
+        <h3 class="text-xs font-semibold text-blue-600 uppercase tracking-wide">
+            用户必读安全须知
+        </h3>
+        <p class="text-sm text-blue-600 mt-2">
+            请仔细阅读我们的隐私政策和安全措施，确保您的账户安全。
+        </p>
+    </div>
+</div>
+</body>
+</html>
